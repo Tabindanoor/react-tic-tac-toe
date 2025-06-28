@@ -2,12 +2,13 @@ import { useState } from 'react';
 import './Board.css';
 
 const Board = () => {
-  const [squarbes, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [winner, setWinner] = useState(null);
 
   const handleClick = (index) => {
     if (winner || squares[index]) return;
+
     const updatedSquares = [...squares];
     updatedSquares[index] = xIsNext ? 'X' : 'O';
     setSquares(updatedSquares);
